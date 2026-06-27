@@ -7,6 +7,7 @@
 | 插件 ID | 名称 | 版本 | 说明 |
 | --- | --- | --- | --- |
 | `UnCrossSeedChecker` | 未辅种检查器 | `1.0.0` | 检查下载器中指定站点的种子是否已辅种到其他站点，列出未辅种内容。 |
+| `GGPTMedalBuyer` | GGPT勋章购买 | `1.0.0` | 自动续购 7 天有效的 GGPT 勋章，避免到期后忘记手动购买。 |
 | `TangLottery` | 不可躺自动抽奖助手 | `1.0.1` | 按每日目标次数自动拆解并执行不可躺抽奖，记录历史、奖品汇总和任务通知。 |
 | `ForumRssMonitor` | 论坛动态监控 | `1.2.0` | 监控论坛 RSS/Atom 动态和蜂巢(pting.club) API，默认推送最近 24 小时内的新帖。 |
 | `PlayletLottery` | PlayLet自动抽奖助手 | `1.0.3` | 按每日目标次数自动拆解并执行 PlayLet 抽奖，记录历史、奖品汇总和任务通知。 |
@@ -19,6 +20,7 @@ MoviePilot-Plugins/
 ├── package.v2.json                # V2 插件索引
 └── plugins.v2/                    # V2 插件目录
     ├── forumrssmonitor/
+    ├── ggptmedalbuyer/
     ├── playletlottery/
     ├── tanglottery/
     └── uncrossseedchecker/
@@ -45,6 +47,7 @@ MoviePilot-Plugins/
 volumes:
   - ./MoviePilot-Plugins:/local-plugins
   - ./MoviePilot-Plugins/plugins.v2/forumrssmonitor:/app/app/plugins/forumrssmonitor
+  - ./MoviePilot-Plugins/plugins.v2/ggptmedalbuyer:/app/app/plugins/ggptmedalbuyer
   - ./MoviePilot-Plugins/plugins.v2/playletlottery:/app/app/plugins/playletlottery
   - ./MoviePilot-Plugins/plugins.v2/tanglottery:/app/app/plugins/tanglottery
   - ./MoviePilot-Plugins/plugins.v2/uncrossseedchecker:/app/app/plugins/uncrossseedchecker
@@ -80,6 +83,25 @@ MoviePilot V2 插件，用于检查下载器中指定站点的种子是否已辅
 详细说明见插件目录：
 
 - `plugins.v2/uncrossseedchecker/README.md`
+
+### GGPT勋章购买
+
+MoviePilot V2 插件，用于自动续购 7 天有效的 GGPT 勋章。
+
+主要能力：
+
+- 自动读取 MoviePilot 站点管理中的 GGPT 站点信息
+- 配置页管理启用、提醒、勋章 ID 和偏移量
+- 详情页展示 UID、站点、勋章持有状态、到期时间和预计下次购买时间
+- 购买记录以卡片展示，桌面端按 6 个一行排列
+- 每天 08:00 自动刷新，到达预计购买时间后自动检查并购买
+- 保存配置后自动检查一次，已购买时只更新预计下次购买时间
+- 购买记录同时展示成功和失败
+- 购买完成后按配置发送通知提醒
+
+详细说明见插件目录：
+
+- `plugins.v2/ggptmedalbuyer/README.md`
 
 ### 论坛动态监控
 

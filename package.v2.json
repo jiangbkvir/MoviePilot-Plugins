@@ -11,6 +11,18 @@
       "v1.0.0": "新增下载器种子扫描、站点识别、辅种检测和未辅种种子列表展示。"
     }
   },
+  "GGPTMedalBuyer": {
+    "name": "GGPT勋章购买",
+    "description": "自动续购 7 天有效的 GGPT 勋章，避免到期后忘记手动购买。",
+    "labels": "站点,自动化",
+    "version": "1.0.0",
+    "icon": "Moviepilot_A.png",
+    "author": "jiangbkvir,bfjy",
+    "level": 1,
+    "history": {
+      "v1.0.0": "新增 GGPT 勋章自动购买、预计下次购买时间、购买记录和通知提醒。"
+    }
+  },
   "TangLottery": {
     "name": "不可躺自动抽奖助手",
     "description": "按每日目标次数自动拆解并执行不可躺抽奖。",
